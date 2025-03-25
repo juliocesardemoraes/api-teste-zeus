@@ -1,8 +1,7 @@
 // Add your code here
-
 import express from "express";
-
 import cors from "cors";
+import router from "./routes/index.js";
 
 const app = express();
 
@@ -15,11 +14,11 @@ app.use(
 app.use(express.json());
 
 // SETUP ROUTES
-
-app.use("/", (req, res) => {
+app.get("/", (req, res) => {
   res.status(200).send({ test: true });
 });
 
+app.use("/quotes", router);
 app.listen("3000");
 
 export default app;
