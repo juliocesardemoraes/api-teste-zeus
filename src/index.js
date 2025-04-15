@@ -2,7 +2,9 @@
 import express from "express";
 import cors from "cors";
 import router from "./routes/index.js";
+import { connectToMongo } from "./database/connect.js";
 
+connectToMongo();
 const app = express();
 
 app.use(
